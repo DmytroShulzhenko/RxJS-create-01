@@ -1,12 +1,11 @@
-// fromEventPattern(
+// fromEventPattern<T>(
 //   addHandler: (handler: NodeEventHandler) => any,
 //   removeHandler?: (handler: NodeEventHandler, signal?: any) => void, 
-//   resultSelector?: (...args: any[]) => T // DEPRECATED
+//   resultSelector?: (...args: any[]) => T
 // ): Observable<T | T[]>
 
-import { fromEventPattern } from 'rxjs';
-import { addItem, run } from './../03-utils';
-import { map, pluck } from 'rxjs/operators';
+import { fromEventPattern, map } from 'rxjs';
+import { run } from './../03-utils';
 
 export function fromEventPatternDemo1() {
   function addHandler(handler) {
@@ -29,7 +28,7 @@ export function fromEventPatternDemo2() {
   const stream$ = fromEventPattern(
     handler => { myWorker.onmessage = handler },
     handler => { myWorker.onmessage = undefined }
-  ).pipe(pluck('data'));
+  ).pipe(map((event: any) => event.data));
 
   // run(stream$);
 

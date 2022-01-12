@@ -3,7 +3,7 @@
 // ): Observable<T>
 
 import { generate, asyncScheduler, scheduled } from 'rxjs';
-import { addItem, run } from './../03-utils';
+import { addItem, run } from '../03-utils';
 
 export function generateDemo1() {
   const initialState = 1;

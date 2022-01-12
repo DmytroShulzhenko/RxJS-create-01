@@ -1,12 +1,11 @@
 // fromFetch<T>(
 //     input: string | Request, 
-//     initWithSelector?: RequestInit & { selector?: (response: Response) => any; } = {}
+//     initWithSelector?: RequestInit & { selector?: (response: Response) => ObservableInput<T>; } = {}
 // ): Observable<Response | T>
 
-import { of } from 'rxjs';
+import { of, switchMap, catchError } from 'rxjs';
 import { fromFetch } from 'rxjs/fetch';
-import { switchMap, catchError } from 'rxjs/operators';
-import { addItem, run } from './../03-utils';
+import { run } from './../03-utils';
  
 export function fromFetchDemo() {
     const stream$ = fromFetch('https://api.github.com/users?per_page=5')

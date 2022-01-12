@@ -1,6 +1,6 @@
 // interval(
 //   period: number = 0, 
-//   scheduler: SchedulerLike = async
+//   scheduler: SchedulerLike = asyncScheduler
 // ): Observable<number>
 
 import { interval, queueScheduler, scheduled, Subscription } from 'rxjs';

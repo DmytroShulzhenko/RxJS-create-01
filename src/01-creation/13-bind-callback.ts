@@ -1,12 +1,11 @@
-// bindCallback<T>(
-//   callbackFunc: Function, 
-//   resultSelector?: Function | ShedulerLike, // DEPRECATED
+// bindCallback(
+//   callbackFunc: (args_0: any, args_1: (...res: any) => void) => void, 
+//   resultSelector?: ((...args: any[]) => any) | ShedulerLike,
 //   sheduler?: ShedulerLike
-// ): (...args: any[]) => Observable<T>
+// ): (...args: any[]) => Observable<unknown>
 
-import { bindCallback, asyncScheduler } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { addItem, run } from './../03-utils';
+import { bindCallback, map, asyncScheduler } from 'rxjs';
+import { addItem, run } from '../03-utils';
 
 export function bindCallbackDemo1() {
   function doSomething(data: string, callback: (arg: Array<string>) => void): void {

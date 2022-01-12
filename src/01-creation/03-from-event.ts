@@ -1,8 +1,8 @@
-// fromEvent(
+// fromEvent<T>(
 //   target: FromEventTarget<T>, 
 //   eventName: string, 
 //   options?: EventListenerOptions | ((...args: any[]) => T), 
-//   resultSelector?: (...args: any[]) =>  T  // DEPRECATED
+//   resultSelector?: (...args: any[]) =>  T
 // ): Observable<T>
 
 // target:
@@ -51,7 +51,7 @@ export function fromEventDemo3() {
   const resultSelector1 = (event: any) => event.clientX; // X
 
   const stream$1 =fromEvent(target1, eventName, { capture: true }).pipe(map(resultSelector1)); 
-  const stream$2 = fromEvent(target2, eventName).pipe(pluck('clientY'));
+  const stream$2 = fromEvent(target2, eventName).pipe(map((event: any) => event.clientY));
 
   // run(stream$1);
   // run(stream$2);

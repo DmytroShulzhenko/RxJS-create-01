@@ -1,8 +1,7 @@
 // const NEVER: Observable<never>
 
-import { NEVER, of } from 'rxjs';
-import { addItem, run } from './../03-utils';
-import { startWith } from 'rxjs/operators';
+import { NEVER, of, startWith } from 'rxjs';
+import { run } from '../03-utils';
 
 export function neverDemo() {
   // const stream$ = of(0); // finite stream

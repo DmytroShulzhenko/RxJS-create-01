@@ -1,8 +1,7 @@
-// from<T>(input: any, scheduler?: SchedulerLike): Observable<T>
+// from<T>(input: ObservableInput<T>, scheduler?: SchedulerLike): Observable<T>
 
-import { from, asyncScheduler, scheduled } from 'rxjs';
+import { from, asyncScheduler, scheduled, take } from 'rxjs';
 import { addItem, run } from './../03-utils';
-import { take } from 'rxjs/operators';
 
 // From Array
 export function fromDemo1() {

@@ -1,8 +1,8 @@
-// defer<R extends ObservableInput<any> | void>(
+// defer<R extends ObservableInput<any>>(
 //   observableFactory: () => R
 // ): Observable<ObservableValueOf<R>>
 
-import { addItem, run } from './../03-utils';
+import { run } from '../03-utils';
 import { of, defer } from 'rxjs';
 
 export function deferDemo() {

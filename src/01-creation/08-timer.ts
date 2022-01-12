@@ -1,11 +1,11 @@
 // timer(
 //   dueTime: number | Date = 0, 
 //   periodOrScheduler?: number | SchedulerLike, 
-//   scheduler?: SchedulerLike
+//   scheduler?: SchedulerLike = asyncScheduler
 // ): Observable<number>
 
 import { timer, asyncScheduler, queueScheduler } from 'rxjs';
-import { addItem, run } from './../03-utils';
+import { run } from './../03-utils';
 
 // Emit only 0 and complete
 export function timerDemo1() {

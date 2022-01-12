@@ -1,8 +1,7 @@
 // const EMPTY: Observable<never>
 
-import { EMPTY } from 'rxjs';
-import { addItem, run } from './../03-utils';
-import { startWith } from 'rxjs/operators';
+import { EMPTY, startWith } from 'rxjs';
+import { run } from '../03-utils';
 
 export function emptyDemo() {
   const stream$ = EMPTY;

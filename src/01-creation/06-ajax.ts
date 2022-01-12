@@ -1,9 +1,8 @@
 // ajax(input: string | object): Observable
 
 import { ajax } from 'rxjs/ajax';
-import { map, catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { addItem, run } from './../03-utils';
+import { of, map, catchError } from 'rxjs';
+import { run } from './../03-utils';
 
 export function ajaxDemo1() {
     const source$ = ajax(`https://api.github.com/users?per_page=5`);
