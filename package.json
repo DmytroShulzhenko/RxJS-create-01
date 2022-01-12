@@ -4,7 +4,7 @@
     "start": "webpack-dev-server --config webpack.dev.js"
   },
   "dependencies": {
-    "rxjs": "^7.1.0"
+    "rxjs": "^7.5.2"
   },
   "devDependencies": {
     "@webpack-cli/init": "^0.3.0",
