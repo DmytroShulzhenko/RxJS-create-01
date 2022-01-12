@@ -1,4 +1,4 @@
-// ajax(input: string | object): Observable
+// ajax(input: string | AjaxConfig): Observable
 
 import { ajax } from 'rxjs/ajax';
 import { of, map, catchError } from 'rxjs';
