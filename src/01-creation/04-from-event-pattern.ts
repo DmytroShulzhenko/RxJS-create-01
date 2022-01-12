@@ -16,8 +16,10 @@ export function fromEventPatternDemo1() {
     document.removeEventListener('click', handler);
   }
 
-  const resultSelector = (event: any) => event.clientX; // optional
-  const stream$ = fromEventPattern(addHandler, removeHandler).pipe(map(resultSelector));
+  const resultSelector = (event: MouseEvent) => event.clientX; // optional
+  const stream$ = fromEventPattern(addHandler, removeHandler, resultSelector);
+  // or
+  // const stream$ = fromEventPattern(addHandler, removeHandler).pipe(map(resultSelector));
 
   // run(stream$);
 }
@@ -28,7 +30,7 @@ export function fromEventPatternDemo2() {
   const stream$ = fromEventPattern(
     handler => { myWorker.onmessage = handler },
     handler => { myWorker.onmessage = undefined }
-  ).pipe(map((event: any) => event.data));
+  ).pipe(map((event: MessageEvent) => event.data));
 
   // run(stream$);
 

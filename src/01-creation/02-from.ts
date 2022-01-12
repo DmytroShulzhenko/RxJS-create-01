@@ -14,7 +14,12 @@ export function fromDemo1() {
 
 // From Promise
 export function fromDemo2() {
-  const promise = Promise.resolve(5);
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(5);
+      // reject('Error');
+    }, 3000)
+  });
   const stream$ = from(promise);
 
   // run(stream$);
@@ -46,14 +51,10 @@ export function fromDemo4() {
 
 // From Map
 export function fromDemo5() {
-  const map = new Map();
-  map.set(1, 'Hi');
-  map.set(2, 'Bye');
+  const map = new Map([[1, 'Hi'], [2, 'Bye']]);
 
-  const streamOld$ = from(map, asyncScheduler);
   const streamNew$ = scheduled(from(map), asyncScheduler); 
 
-  // run(streamOld$);
   // run(streamNew$);
   // addItem('Next line of code');
 }

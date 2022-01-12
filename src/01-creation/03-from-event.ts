@@ -19,9 +19,8 @@
 // }
 
 
-import { fromEvent } from 'rxjs';
-import { map, pluck } from 'rxjs/operators';
-import { addItem, run } from './../03-utils';
+import { fromEvent, map } from 'rxjs';
+import { run } from './../03-utils';
 
 // fromEvent
 export function fromEventDemo1() {
@@ -36,10 +35,12 @@ export function fromEventDemo1() {
 export function fromEventDemo2() {
   const target = document;
   const eventName = 'click';
-  const resultSelector = (event: any) => event.clientX; // transform original event object to value of clientX property
-  const stream$ = fromEvent(target, eventName).pipe(map(resultSelector));
+  const resultSelector = (event: MouseEvent) => event.clientX; // transform original event object to value of clientX property
+  const stream$ = fromEvent(target, eventName, resultSelector);
+  // or
+  // const stream$ = fromEvent(target, eventName).pipe(map(resultSelector));
   
-  // run(stream$);
+  // run(stream$, { outputMethod: 'console'});
 }
 
 // fromEvent + options object
@@ -48,10 +49,10 @@ export function fromEventDemo3() {
   const target2 = document.body;
   const eventName = 'click';
   
-  const resultSelector1 = (event: any) => event.clientX; // X
+  const resultSelector = (event: MouseEvent) => event.clientX; // X
 
-  const stream$1 =fromEvent(target1, eventName, { capture: true }).pipe(map(resultSelector1)); 
-  const stream$2 = fromEvent(target2, eventName).pipe(map((event: any) => event.clientY));
+  const stream$1 = fromEvent(target1, eventName, { capture: true }, resultSelector); 
+  const stream$2 = fromEvent(target2, eventName).pipe(map((event: MouseEvent) => event.clientY));
 
   // run(stream$1);
   // run(stream$2);

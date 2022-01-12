@@ -57,9 +57,10 @@ export function bindCallbackDemo4() {
    callback(words, words.length);
   }
   
-  const boundFunc = bindCallback(doSomething);
+  const resultSelector = (value: any[]) => value[0];
+  const boundFunc = bindCallback(doSomething, resultSelector);
   
-  const source$ = boundFunc('Some Data').pipe(map((value: any) => value[0]));
+  // const source$ = boundFunc('Some Data');
   // run(source$);
 }
 

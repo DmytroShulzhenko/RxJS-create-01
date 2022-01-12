@@ -58,9 +58,10 @@ export function bindNodeCallbackDemo4() {
    callback(null, words, words.length);
   }
   
-  const boundFunc = bindNodeCallback(doSomething);
+  const resultSelector = (value: any[]) => value[0]
+  const boundFunc = bindNodeCallback(doSomething, resultSelector);
   
-  const source$ = boundFunc('Some Data').pipe(map((value: any) => value[0]));
+  // const source$ = boundFunc('Some Data');
   // run(source$);
 }
 

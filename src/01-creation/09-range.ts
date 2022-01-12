@@ -33,12 +33,7 @@ export function rangeDemo3() {
   const count = 10; 
   const scheduler = asyncScheduler;
 
-  const streamOld$ = range(start, count, scheduler);
-  
-  // run(streamOld$);
-  // addItem(200); // 200 appears first
-
-  const streamNew$ = scheduled(range(start, count), scheduler);
-  // run(streamNew$);
+  const stream$ = scheduled(range(start, count), scheduler);
+  // run(stream$);
   // addItem(200); // 200 appears first
 }

@@ -17,10 +17,6 @@ export function ofDemo2() {
 }
 
 export function ofDemo3() {
-  // old (deprecated) approach
-  const streamOld$ = of(1, 2, 3, 4, 5, asyncScheduler); // Each argument becomes a next notification.
-
-  // new approach
   const streamNew$ = scheduled(of(1, 2, 3, 4, 5), asyncScheduler);
 
   // run(streamNew$);

@@ -12,7 +12,7 @@ export function intervalDemo1() {
   const stream$ = interval(period);  // asynchronous sequence
 
   // run(stream$);
-  // setTimeout(addItem, 2000, 'Next line of code');
+  // setTimeout(addItem, 7000, 'Next line of code');
 }
 
 // stop emitting by unsubscribing
@@ -26,7 +26,7 @@ export function intervalDemo2() {
   // we want to stop listening to the stream, we call unsubscribe
   // setTimeout(() => sub.unsubscribe(), 5000);
 
-  // Types of Scheduler https://rxjs-dev.firebaseapp.com/guide/scheduler
+  // Types of Scheduler https://rxjs.dev/guide/scheduler
   // const streamNew$ = scheduled(interval(period), queueScheduler);
   // const sub: Subscription = run(streamNew$);
   // setTimeout(() => sub.unsubscribe(), 5000);
