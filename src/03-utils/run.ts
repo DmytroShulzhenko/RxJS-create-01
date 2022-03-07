@@ -24,6 +24,7 @@ export function run(
   const observer = {
     next: (value: any) => {
       let outputValue: any = value;
+
       if (typeof value === 'object') {
         outputValue = JSON.stringify(value);
       }
@@ -34,6 +35,7 @@ export function run(
         addItem(`${settings.next} ${outputValue}`);
       }
     },
+
     error: error => {
       if (settings.outputMethod === 'console') {
         console.log(`${settings.error}${error}`);
@@ -41,6 +43,7 @@ export function run(
         addItem(`${settings.error}${error}`);
       }
     },
+
     complete: () => {
       if (settings.outputMethod === 'console') {
         console.log(`${settings.complete}`);

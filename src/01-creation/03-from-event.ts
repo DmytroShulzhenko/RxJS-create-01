@@ -1,7 +1,7 @@
 // fromEvent<T>(
-//   target: FromEventTarget<T>, 
-//   eventName: string, 
-//   options?: EventListenerOptions | ((...args: any[]) => T), 
+//   target: FromEventTarget<T>,
+//   eventName: string,
+//   options?: EventListenerOptions | ((...args: any[]) => T),
 //   resultSelector?: (...args: any[]) =>  T
 // ): Observable<T>
 
@@ -19,41 +19,41 @@
 // }
 
 
-import { fromEvent, map } from 'rxjs';
-import { run } from './../03-utils';
+import {fromEvent, map} from 'rxjs';
+import {run} from './../03-utils';
 
 // fromEvent
 export function fromEventDemo1() {
-  const target = document.body;
-  const eventName = 'mousemove';
-  const stream$ = fromEvent(target, eventName);
+	const target = document.body;
+	const eventName = 'mousemove';
+	const stream$ = fromEvent(target, eventName);
 
-  // run(stream$, {outputMethod: 'console'});
+	// run(stream$, {outputMethod: 'console'});
 }
 
 // fromEvent + resultSelector
 export function fromEventDemo2() {
-  const target = document;
-  const eventName = 'click';
-  const resultSelector = (event: MouseEvent) => event.clientX; // transform original event object to value of clientX property
-  const stream$ = fromEvent(target, eventName, resultSelector);
-  // or
-  // const stream$ = fromEvent(target, eventName).pipe(map(resultSelector));
-  
-  // run(stream$, { outputMethod: 'console'});
+	const target = document;
+	const eventName = 'click';
+	const resultSelector = (event: MouseEvent) => event.clientX; // transform original event object to value of clientX property
+	const stream$ = fromEvent(target, eventName, resultSelector);
+	// or
+	// const stream$ = fromEvent(target, eventName).pipe(map(resultSelector));
+
+	// run(stream$, { outputMethod: 'console'});
 }
 
 // fromEvent + options object
 export function fromEventDemo3() {
-  const target1 = document;
-  const target2 = document.body;
-  const eventName = 'click';
-  
-  const resultSelector = (event: MouseEvent) => event.clientX; // X
+	const target1 = document;
+	const target2 = document.body;
+	const eventName = 'click';
 
-  const stream$1 = fromEvent(target1, eventName, { capture: true }, resultSelector); 
-  const stream$2 = fromEvent(target2, eventName).pipe(map((event: MouseEvent) => event.clientY));
+	const resultSelector = (event: MouseEvent) => event.clientX; // X
 
-  // run(stream$1);
-  // run(stream$2);
+	const stream$1 = fromEvent(target1, eventName, {capture: true}, resultSelector);
+	const stream$2 = fromEvent(target2, eventName).pipe(map((event: MouseEvent) => event.clientY));
+
+	// run(stream$1);
+	// run(stream$2);
 }
